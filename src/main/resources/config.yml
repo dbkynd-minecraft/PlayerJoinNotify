@@ -1,0 +1,7 @@
+toEmail: to@example.com
+fromEmail: from@example.com
+smtpHost: smtp.gmail.com
+smtpPassword: "password"
+emailSubject: Player Joined
+players: []
+send-test-email-on-startup: false
