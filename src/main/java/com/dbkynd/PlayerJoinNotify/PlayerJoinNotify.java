@@ -1,8 +1,8 @@
-package com.dbkynd.PlayerConnectNotify;
+package com.dbkynd.PlayerJoinNotify;
 
-import com.dbkynd.PlayerConnectNotify.Commands.ReloadCommand;
-import com.dbkynd.PlayerConnectNotify.Listeners.PostLoginListener;
-import com.dbkynd.PlayerConnectNotify.Utils.EmailUtil;
+import com.dbkynd.PlayerJoinNotify.Commands.ReloadCommand;
+import com.dbkynd.PlayerJoinNotify.Listeners.PostLoginListener;
+import com.dbkynd.PlayerJoinNotify.Utils.EmailUtil;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -14,7 +14,7 @@ import org.bstats.bungeecord.Metrics;
 import java.io.File;
 import java.io.IOException;
 
-public class PlayerConnectNotify extends Plugin {
+public class PlayerJoinNotify extends Plugin {
 
     private Configuration config;
 

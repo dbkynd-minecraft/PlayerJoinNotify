@@ -1,8 +1,8 @@
-name: PlayerConnectNotify
-main: com.dbkynd.PlayerConnectNotify.PlayerConnectNotify
+name: PlayerJoinNotify
+main: com.dbkynd.PlayerJoinNotify.PlayerJoinNotify
 version: '${project.version}'
 author: DBKynd
 command:
-  pcnotify:
+  pjnotify:
     description: Send an email when a player joins the server.
     usage: /<command>

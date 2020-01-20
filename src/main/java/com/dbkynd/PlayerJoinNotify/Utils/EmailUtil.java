@@ -1,4 +1,4 @@
-package com.dbkynd.PlayerConnectNotify.Utils;
+package com.dbkynd.PlayerJoinNotify.Utils;
 
 import java.util.Date;
 import java.util.Properties;

@@ -1,15 +1,15 @@
-package com.dbkynd.PlayerConnectNotify.Listeners;
+package com.dbkynd.PlayerJoinNotify.Listeners;
 
-import com.dbkynd.PlayerConnectNotify.PlayerConnectNotify;
+import com.dbkynd.PlayerJoinNotify.PlayerJoinNotify;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
 public class PostLoginListener implements Listener {
 
-    PlayerConnectNotify plugin;
+    PlayerJoinNotify plugin;
 
-    public PostLoginListener(PlayerConnectNotify plugin) {
+    public PostLoginListener(PlayerJoinNotify plugin) {
         this.plugin = plugin;
     }
 
