@@ -3,10 +3,13 @@ package com.dbkynd.PlayerConnectNotify;
 import com.dbkynd.PlayerConnectNotify.Commands.ReloadCommand;
 import com.dbkynd.PlayerConnectNotify.Listeners.PostLoginListener;
 import com.dbkynd.PlayerConnectNotify.Utils.EmailUtil;
+
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+
+import org.bstats.bungeecord.Metrics;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +20,7 @@ public class PlayerConnectNotify extends Plugin {
 
     @Override
     public void onEnable() {
+        Metrics metrics = new Metrics(this);
         loadConfig();
         getProxy().getPluginManager().registerCommand(this, new ReloadCommand(this));
         getProxy().getPluginManager().registerListener(this, new PostLoginListener(this));
