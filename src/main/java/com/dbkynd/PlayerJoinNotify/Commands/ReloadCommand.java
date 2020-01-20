@@ -21,9 +21,9 @@ public class ReloadCommand extends Command {
         if (!args[0].toLowerCase().equals("reload")) return;
         try {
             plugin.loadConfig();
-            sender.sendMessage(new TextComponent("[" + ChatColor.GOLD + "PlayerConnectNotify" + ChatColor.RESET + "]: The config.yml file has been reloaded."));
+            sender.sendMessage(new TextComponent("[" + ChatColor.GOLD + "PlayerJoinNotify" + ChatColor.RESET + "]: The config.yml file has been reloaded."));
         } catch (Exception e) {
-            sender.sendMessage(new TextComponent("[" + ChatColor.GOLD + "PlayerConnectNotify" + ChatColor.RESET + "]: " + ChatColor.RED + "There was an error reloading the config.yml file."));
+            sender.sendMessage(new TextComponent("[" + ChatColor.GOLD + "PlayerJoinNotify" + ChatColor.RESET + "]: " + ChatColor.RED + "There was an error reloading the config.yml file."));
         }
     }
 }
