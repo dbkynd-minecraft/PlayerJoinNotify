@@ -1,6 +1,6 @@
 name: PlayerJoinNotify
 version: ${project.version}
-main: com.dbkynd.playerjoinnotify.bukkit.PlayerJoinNotify
+main: com.dbkynd.playerjoinnotify.bungee.PlayerJoinNotify
 description: Notify via email when players join the server.
 author: DBKynd
 api-version: '1.15'

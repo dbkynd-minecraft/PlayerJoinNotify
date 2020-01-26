@@ -1,47 +1,35 @@
-package com.dbkynd.PlayerJoinNotify;
+package com.dbkynd.playerjoinnotify.bungee;
 
-import com.dbkynd.PlayerJoinNotify.Commands.ReloadCommand;
-import com.dbkynd.PlayerJoinNotify.Listeners.PostLoginListener;
-import com.dbkynd.PlayerJoinNotify.Utils.EmailUtil;
-
+import com.dbkynd.playerjoinnotify.bungee.bstats.Metrics;
+import com.dbkynd.playerjoinnotify.bungee.commands.ReloadCommand;
+import com.dbkynd.playerjoinnotify.bungee.listeners.PostLoginListener;
+import com.dbkynd.playerjoinnotify.utils.EmailUtil;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 
-import org.bstats.bungeecord.Metrics;
-
 import java.io.File;
 import java.io.IOException;
 
-public class PlayerJoinNotify extends Plugin {
-
+public final class PlayerJoinNotify extends Plugin {
     private Configuration config;
 
     @Override
     public void onEnable() {
-        Metrics metrics = new Metrics(this);
+        new Metrics(this, 6302);
         loadConfig();
         getProxy().getPluginManager().registerCommand(this, new ReloadCommand(this));
         getProxy().getPluginManager().registerListener(this, new PostLoginListener(this));
 
-
         if (config.getBoolean("send-test-email-on-startup")) {
-            getLogger().info("Sending a test email to: " + config.getString("toEmail"));
-            getProxy().getScheduler().runAsync(this, () -> sendMail("TEST", true));
+            getLogger().info("Sending email to: " + config.getString("toEmail"));
+            sendMail("TEST", true);
         }
     }
 
     public void sendMail(String player, Boolean isTest) {
-        final String fromEmail = config.getString("fromEmail");
-        final String password = config.getString("smtpPassword");
-        final String toEmail = config.getString("toEmail");
-        final String subject = config.getString("emailSubject");
-        final String host = config.getString("smtpHost");
-        String body = player + " has joined the server!";
-        if (isTest) body = "This is a test message.";
-
-        EmailUtil.sendEmail(toEmail, fromEmail, subject, body, host, password);
+        getProxy().getScheduler().runAsync(this, () -> EmailUtil.sendEmail(config, player, isTest));
     }
 
     public void loadConfig() {
@@ -56,6 +44,7 @@ public class PlayerJoinNotify extends Plugin {
         try {
             if (!file.exists()) {
                 ConfigurationProvider.getProvider(YamlConfiguration.class).save(ConfigurationProvider.getProvider(YamlConfiguration.class).load(getResourceAsStream("config.yml")), file);
+                getLogger().warning("Default config.yml generated. Please edit the fields and restart the server!");
             }
             config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
         } catch (IOException e) {

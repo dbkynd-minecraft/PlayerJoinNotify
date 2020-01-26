@@ -1,7 +1,10 @@
 toEmail: to@example.com
 fromEmail: from@example.com
 smtpHost: smtp.gmail.com
-smtpPassword: "password"
-emailSubject: Player Joined
+smtpPassword: 'password'
+useTLS: true
+port: 587
+emailSubject: A Player Has Joined The Minecraft Server
 players: []
+inverted-mode: false
 send-test-email-on-startup: false

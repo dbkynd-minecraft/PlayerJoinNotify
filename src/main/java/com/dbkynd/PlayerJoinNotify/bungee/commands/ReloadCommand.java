@@ -1,6 +1,6 @@
-package com.dbkynd.PlayerJoinNotify.Commands;
+package com.dbkynd.playerjoinnotify.bungee.commands;
 
-import com.dbkynd.PlayerJoinNotify.PlayerJoinNotify;
+import com.dbkynd.playerjoinnotify.bungee.PlayerJoinNotify;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -8,7 +8,7 @@ import net.md_5.bungee.api.plugin.Command;
 
 public class ReloadCommand extends Command {
 
-    PlayerJoinNotify plugin;
+    final PlayerJoinNotify plugin;
 
     public ReloadCommand(PlayerJoinNotify plugin) {
         super("pjnotify", "pjnotify.reload");
